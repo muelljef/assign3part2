@@ -1,0 +1,33 @@
+You log goes in this  file.
+
+Date Start:     Mon Apr 13 16:41:25 2015 +1000
+Date End:       Mon Apr 13 17:18:30 2015 +1000
+Tasks: During this period I setup my copy/repo of the assignment in Github and 
+        read the Mozilla Javascript documentation while completing the first function of object.js
+        
+Date Start:     Tue Apr 14 09:45:00 2015 +1000 
+Data End:       Tue Apr 14 10:29:25 2015 +1000
+Tasks: During this period I read Mozilla Javascript documentation while completing the uselessFunction 
+        of functions.js and variableModification of variables.js. Work started on barFunction of functions.js
+        
+Date Start:     Tue Apr 14 11:00:00 2015 +1000
+Date End:       Tue Apr 14 11:16:20 2015 +1000
+Tasks: During this period I completed the isString and isNull functions of variables.js and the
+        bar function in functions.js
+        
+Date Start:     Tue Apr 14 11:35:05 2015 +1000
+Date End:       Tue Apr 14 12:45:05 2015 +1000
+Tasks: During this period I worked on the parseGit function. Passing tests for hash and message. Could not get
+        Date to work. Will need to focus on materials related to Date syntax in Javascript.
+        
+Date Start:     Tue Apr 14 13:30:00 2015 +1000
+Date End:       Tue Apr 14 16:03:23 2015 +1000        
+Tasks: During this period I fixed the syntax of the Date in the parseGit and GitLog object. I also finished all steps
+            related to the MessageLog object. Part 1 passes all tests.
+            
+Date Start:     Wed Apr 15 20:30:00 2015 +1000
+Date End:       Wed Apr 15 21:32:41 2015 +1000            
+Task:  During this period I edited the Javascript files to conform to Google Javascript standards and to pass the JSLint
+        website tests. The code still passes all tests in the html file.
+        
+        
