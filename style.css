@@ -1,0 +1,16 @@
+#search{
+  width: 180px;
+  height: 120px;
+}
+
+#mySearch {
+  width: 47.5%;
+  border: solid;
+  float: left;
+}
+
+#myFav {
+  width: 47.5%;
+  border: solid;
+  float: right;
+}

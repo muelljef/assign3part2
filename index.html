@@ -1,12 +1,21 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>assignment3part2</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <h1>Looking up Github Gists</h1>
-    <div></div>
-  </body>
+<head>
+  <meta charset='utf-8'>
+  <title>assignment3part2</title>
+  <link rel='stylesheet' href='style.css'>
+</head>
+<body>
+  <h1>Hello Gists</h1>
+  <input type='button' name='search' onclick='getPublicGists()' value='Search' id='search'><br />
+  <div id="mySearch">
+    <ul id="results"></ul>
+  </div>
+  <div id="myFav">
+    <ul id="favorites">
+      <li>Favorites</li>
+    </ul>
+  </div>
+  <script src='scripts.js'></script>
+</body>
 </html>
