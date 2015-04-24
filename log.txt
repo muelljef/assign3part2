@@ -48,4 +48,9 @@ Task: Successfully separated writeLines function. Was having trouble because I s
 Date Start:     Fri Apr 24 07:15:00 2015 +1000
 Date End:       Fri Apr 24 16:42:42 2015 +1000
 
-    Added favorite and unfavorite buttons, functionality for favorite button, near functionality for unfavorite button
+Task:   Added favorite and unfavorite buttons, functionality for favorite button, near functionality for unfavorite button
+    
+Date Start:     Fri Apr 24 18:00:00 2015 +1000
+Date End:       Fri Apr 24 19:36:58 2015 +1000
+
+Task:   Incorporated local storage to favorits, add/remove favorites working
