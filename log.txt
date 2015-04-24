@@ -23,7 +23,7 @@ Tasks: During this period I worked on the parseGit function. Passing tests for h
 Date Start:     Tue Apr 14 13:30:00 2015 +1000
 Date End:       Tue Apr 14 16:03:23 2015 +1000        
 Tasks: During this period I fixed the syntax of the Date in the parseGit and GitLog object. I also finished all steps
-            related to the MessageLog object. Part 1 passes all tests.
+        related to the MessageLog object. Part 1 passes all tests.
             
 Date Start:     Wed Apr 15 20:30:00 2015 +1000
 Date End:       Wed Apr 15 21:32:41 2015 +1000            
@@ -33,9 +33,14 @@ Task:  During this period I edited the Javascript files to conform to Google Jav
 Date Start:     Wed Apr 22 06:00:00 2015 +1000
 Date End:       Wed Apr 22 10:03:19 2015 +1000
 Task:  During this period I setup the basic html, javascript and css files. A very basic html structure and css style was implmented to show a search button,
-            results, and favorites. I implemented some javascript functions to change the html text inside those areas for onload and when pressing the button.
-            Also, I got the server request for gists working and stored into an object using JSON parse.
+        results, and favorites. I implemented some javascript functions to change the html text inside those areas for onload and when pressing the button.
+        Also, I got the server request for gists working and stored into an object using JSON parse.
             
 Date Start:     Wed Apr 22 15:15:00 2015 +1000
 Date End:       Wed Apr 22 17:03:11 2015 +1000
-Task:   created function to display search results in a results div
+Task:   I created function to display search results in a results div
+
+Date Start:     Fri Apr 24 07:15:00 2015 +1000
+Date End:       Fri Apr 24 10:20:03 2015 +1000
+Task: Successfully separated writeLines function. Was having trouble because I started calling the AJAX function from the writeLines. Needed AJAX calling the writeLines
+        due to asynchronus behavior of AJAX. I got filtering function working.

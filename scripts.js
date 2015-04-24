@@ -1,3 +1,8 @@
+var globalGist = [];
+
+localStorage.setItem('demo-text', 'Monty Python');
+console.log(localStorage.getItem('demo-text'));
+
 window.onload = function () {
   //document.getElementById("results").textContent = "changed results";
   console.log("Hello");
@@ -48,7 +53,7 @@ function writeResults(resultObj) {
       var li = document.createElement("li");
       var a = document.createElement("a");
       if (desc === "") {
-        desc = "blank";
+        desc = "NO DESCRIPTION";
       }
       var descText = document.createTextNode(desc);
       a.appendChild(descText);
@@ -58,6 +63,8 @@ function writeResults(resultObj) {
     }
   }
 }
+
+
 
 function getPublicGists() {
   //create the request
@@ -70,14 +77,9 @@ function getPublicGists() {
     if (req.readyState === 4) {
       // everything is good, the response is received
       if (req.status === 200) {
-        var i;
         var myObj = JSON.parse(req.responseText);
-        var len = myObj.length;
-        /*for (i = 0; i < len; i++) {
-          demo(myObj[i].description, myObj[i].html_url);
-        }*/
+        globalGist = myObj;
         writeResults(myObj);
-        //console.log(typeof (myObj));
       } else {
         // there was a problem with the request,
         // for example the response may contain a 404 (Not Found)
@@ -97,6 +99,3 @@ function getPublicGists() {
   req.open('GET', 'https://api.github.com/gists/public', true);
   req.send(null);
 }
-
-
-
