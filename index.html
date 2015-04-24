@@ -8,12 +8,15 @@
 <body>
   <h1>Hello Gists</h1>
   <input type='button' name='search' onclick='getPublicGists()' value='Search' id='search'><br />
-  <div id="mySearch">
-    <ul id="results"></ul>
+  <h3 class="mySearch">Results</h3>
+  <h3 class="myFav">Favorites</h3>
+  <div class="mySearch">
+    <ul id="results">
+    </ul>
   </div>
-  <div id="myFav">
+  <div class="myFav">
     <ul id="favorites">
-      <li>Favorites</li>
+      
     </ul>
   </div>
   <script src='scripts.js'></script>

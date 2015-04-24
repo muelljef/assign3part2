@@ -35,3 +35,7 @@ Date End:       Wed Apr 22 10:03:19 2015 +1000
 Task:  During this period I setup the basic html, javascript and css files. A very basic html structure and css style was implmented to show a search button,
             results, and favorites. I implemented some javascript functions to change the html text inside those areas for onload and when pressing the button.
             Also, I got the server request for gists working and stored into an object using JSON parse.
+            
+Date Start:     Wed Apr 22 15:15:00 2015 +1000
+Date End:       Wed Apr 22 17:03:11 2015 +1000
+Task:   created function to display search results in a results div

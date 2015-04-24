@@ -3,14 +3,12 @@
   height: 120px;
 }
 
-#mySearch {
+.mySearch {
   width: 47.5%;
-  border: solid;
   float: left;
 }
 
-#myFav {
+.myFav {
   width: 47.5%;
-  border: solid;
   float: right;
 }
