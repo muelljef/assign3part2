@@ -1,9 +1,10 @@
 var globalGist = [];
+var favorites = [];
 
 window.onload = function () {
-  //document.getElementById("results").textContent = "changed results";
   console.log("Hello");
 }
+
 //only way to make sure local storage exists is to write to it, then check you get that value back.
 
 function filterResults(lang) {
@@ -39,19 +40,23 @@ function filterResults(lang) {
 }
 
 function writeResults() {
-  //filter the results for a language
-  var languages = [];
-  filterResults(languages);
   //get the reference for the search results
-  var resultsList = document.getElementById("results");
+  var resultsDiv = document.getElementById("results");
+  //from https://coderwall.com/p/nygghw/don-t-use-innerhtml-to-empty-dom-elements. claims code is faster
+  //for removing all elements than resultsDiv.innerHTML = ''
+  while (resultsDiv.firstChild) resultsDiv.removeChild(resultsDiv.firstChild);
   var i;
   var len = globalGist.length;
   for(i = 0; i < len; i++){
     if (globalGist[i].hasLang === true) {
       var desc = globalGist[i].description;
       var url = globalGist[i].html_url;
-      //create the list object
-      var li = document.createElement("li");
+      var id = globalGist[i].id;
+      //create a div for the result
+      var div = document.createElement("div");
+      div.id = id;
+      
+      //create the description and link
       var a = document.createElement("a");
       if (desc === "") {
         desc = "NO DESCRIPTION";
@@ -59,9 +64,59 @@ function writeResults() {
       var descText = document.createTextNode(desc);
       a.appendChild(descText);
       a.href = url;
-      li.appendChild(a);
-      resultsList.appendChild(li);
+      div.appendChild(a);
+
+      //create the button and append it
+      var button = document.createElement("button");
+      button.setAttribute("gistId", id);
+      button.innerHTML = "+ fav";
+      button.onclick = function () {
+        //identify the gist to be favorited
+        var gistId = this.getAttribute("gistId");
+        favoriteResult(gistId);
+      };
+      div.appendChild(button);
+      
+      //append the div to the html
+      resultsDiv.appendChild(div);
     }
+  }
+}
+
+function writeFavorites() {
+  //get the reference for the search results
+  var favoritesDiv = document.getElementById("favorites");
+  //from https://coderwall.com/p/nygghw/don-t-use-innerhtml-to-empty-dom-elements. claims code is faster
+  //for removing all elements than favoritesDiv.innerHTML = ''
+  while (favoritesDiv.firstChild) favoritesDiv.removeChild(favoritesDiv.firstChild);
+  var i;
+  var len = favorites.length;
+  for (i = 0; i < len; i++) {
+    var desc = favorites[i].description;
+    var url = favorites[i].html_url;
+    var id = favorites[i].id;
+    //create a div for the result
+    var div = document.createElement("div");
+    div.id = id;
+
+    //create the description and link
+    var a = document.createElement("a");
+    if (desc === "") {
+      desc = "NO DESCRIPTION";
+    }
+    var descText = document.createTextNode(desc);
+    a.appendChild(descText);
+    a.href = url;
+    div.appendChild(a);
+
+    //create the button and append it
+    var button = document.createElement("button");
+    button.setAttribute("gistId", id);
+    button.innerHTML = "- unfav";
+    div.appendChild(button);
+
+    //append the div to the html
+    favoritesDiv.appendChild(div);
   }
 }
 
@@ -74,10 +129,17 @@ function getPublicGists() {
   //define what happens when the request is received
   req.onreadystatechange = function () {
     if (req.readyState === 4) {
+      console.log("Hello from getPublicGists")
       // everything is good, the response is received
       if (req.status === 200) {
+        //convert the response
         var myObj = JSON.parse(req.responseText);
+        //save the results to a global list
         globalGist = myObj;
+        //filter the results for a language
+        var languages = [];
+        filterResults(languages);
+        //write the results to the page
         writeResults(myObj);
       } else {
         // there was a problem with the request,
@@ -97,4 +159,29 @@ function getPublicGists() {
   */
   req.open('GET', 'https://api.github.com/gists/public', true);
   req.send(null);
+}
+
+function favoriteResult(gistId) {
+  var i;
+  var len = globalGist.length;
+  for (i = 0; i < len; i++) {
+    if (globalGist[i].id === gistId) {
+      break;
+    }
+  }
+  favorites.push(globalGist[i]);
+  writeFavorites();
+}
+
+function removeFavorite(gistId) {
+  var i;
+  var len = favorites.length;
+  for (i = 0; i < len; i++) {
+    if (favorites[i].id === gistId) {
+      break;
+    }
+  }
+  //pop the favorites here
+  //favorites.push(globalGist[i]);
+  writeFavorites();
 }

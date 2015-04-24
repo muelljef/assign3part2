@@ -1,6 +1,12 @@
-#search{
-  width: 180px;
-  height: 120px;
+form > input {
+  width: auto;
+  height: auto;
+  font-size: medium;
+}
+
+body > div > div {
+  margin: 10px;
+  border: solid;
 }
 
 .mySearch {
@@ -11,4 +17,10 @@
 .myFav {
   width: 47.5%;
   float: right;
+}
+
+div > button {
+  margin: 10px;
+  height: 30px;
+  width: 70px;
 }
