@@ -1,23 +1,20 @@
 var globalGist = [];
 
-localStorage.setItem('demo-text', 'Monty Python');
-console.log(localStorage.getItem('demo-text'));
-
 window.onload = function () {
   //document.getElementById("results").textContent = "changed results";
   console.log("Hello");
 }
-
 //only way to make sure local storage exists is to write to it, then check you get that value back.
 
-function filterResults(filterObj, lang) {
+function filterResults(lang) {
   var i, j;
   var langLen = lang.length;
-  var len = filterObj.length;
+  var len = globalGist.length;
   //create boolean for all objects
   for (i = 0; i < len; i++) {
-    //initiate boolean to false
-    filterObj[i].hasLang = false;
+    //initiate boolean to true, if there are no filters
+    //results will display because next loop should not start.
+    globalGist[i].hasLang = true;
   }
 
   //an iteration for each language
@@ -25,30 +22,34 @@ function filterResults(filterObj, lang) {
     //iterate over all objects
     for (i = 0; i < len; i++) {
       //iterate over all properties in the .files, essentially check all files
-      for (var prop in filterObj[i].files) {
+      for (var prop in globalGist[i].files) {
         //check if the .files has its own property (part of org obj, not added to prototype)
-        if (filterObj[i].files.hasOwnProperty(prop)) {
-          if (filterObj[i].files[prop].language == lang[j]) {
-            filterObj[i].hasLang = true;
+        if (globalGist[i].files.hasOwnProperty(prop)) {
+          if (globalGist[i].files[prop].language === lang[j]) {
+            globalGist[i].hasLang = true;
+          } else if (j === 0) {
+            //if there is at least 1 language to filter, set boolean to false on first iter
+            //if the language is not found.
+            globalGist[i].hasLang = false;
           }
         }
       }
     }
   }
-  return filterObj;
 }
 
-function writeResults(resultObj) {
-  //document.getElementById("results");
+function writeResults() {
+  //filter the results for a language
+  var languages = [];
+  filterResults(languages);
   //get the reference for the search results
-  var filtObj = filterResults(resultObj, ["JSON", "HTML", "JavaScript"]);
   var resultsList = document.getElementById("results");
   var i;
-  var len = resultObj.length;
+  var len = globalGist.length;
   for(i = 0; i < len; i++){
-    if (filtObj[i].hasLang === true) {
-      var desc = resultObj[i].description;
-      var url = resultObj[i].html_url;
+    if (globalGist[i].hasLang === true) {
+      var desc = globalGist[i].description;
+      var url = globalGist[i].html_url;
       //create the list object
       var li = document.createElement("li");
       var a = document.createElement("a");
@@ -63,8 +64,6 @@ function writeResults(resultObj) {
     }
   }
 }
-
-
 
 function getPublicGists() {
   //create the request
