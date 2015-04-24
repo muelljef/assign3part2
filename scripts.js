@@ -2,7 +2,10 @@ var globalGist = [];
 var favorites = [];
 
 window.onload = function () {
-  console.log("Hello");
+  if (localStorage.getItem("favorites")) {
+    favorites = JSON.parse(localStorage.getItem("favorites"));
+  }
+  writeFavorites();
 }
 
 //only way to make sure local storage exists is to write to it, then check you get that value back.
@@ -48,7 +51,7 @@ function writeResults() {
   var i;
   var len = globalGist.length;
   for(i = 0; i < len; i++){
-    if (globalGist[i].hasLang === true) {
+    if (globalGist[i].hasLang === true && globalGist[i].favorited === false) {
       var desc = globalGist[i].description;
       var url = globalGist[i].html_url;
       var id = globalGist[i].id;
@@ -113,6 +116,10 @@ function writeFavorites() {
     var button = document.createElement("button");
     button.setAttribute("gistId", id);
     button.innerHTML = "- unfav";
+    button.onclick = function () {
+      var gistId = this.getAttribute("gistId");
+      removeFavorite(gistId);
+    };
     div.appendChild(button);
 
     //append the div to the html
@@ -139,12 +146,15 @@ function getPublicGists() {
         //filter the results for a language
         var languages = [];
         filterResults(languages);
+        //filter the favorites from the results
+        checkFavorites();
         //write the results to the page
         writeResults(myObj);
       } else {
         // there was a problem with the request,
         // for example the response may contain a 404 (Not Found)
         // or 500 (Internal Server Error) response code
+        alert("request status error");
       }
     } else {
       // still not
@@ -170,7 +180,10 @@ function favoriteResult(gistId) {
     }
   }
   favorites.push(globalGist[i]);
+  saveFavorites();
   writeFavorites();
+  checkFavorites();
+  writeResults();
 }
 
 function removeFavorite(gistId) {
@@ -181,7 +194,28 @@ function removeFavorite(gistId) {
       break;
     }
   }
-  //pop the favorites here
-  //favorites.push(globalGist[i]);
+  favorites.splice(i, 1);
+  saveFavorites();
   writeFavorites();
+  //should I add writeResults to have the unfavorited return?
+}
+
+function checkFavorites() {
+  var i, j;
+  var len = globalGist.length;
+  var favLen = favorites.length;
+  for (i = 0; i < len; i++) {
+    //initialize favorited status to false
+    globalGist[i].favorited = false;
+    for (j = 0; j < favLen; j++) {
+      if (globalGist[i].id === favorites[j].id) {
+        //make favorited status true if favorited
+        globalGist[i].favorited = true;
+      }
+    }
+  }
+}
+
+function saveFavorites(){
+  localStorage.setItem("favorites", JSON.stringify(favorites));
 }

@@ -46,3 +46,6 @@ Task: Successfully separated writeLines function. Was having trouble because I s
         due to asynchronus behavior of AJAX. I got filtering function working.
         
 Date Start:     Fri Apr 24 07:15:00 2015 +1000
+Date End:       Fri Apr 24 16:42:42 2015 +1000
+
+    Added favorite and unfavorite buttons, functionality for favorite button, near functionality for unfavorite button
