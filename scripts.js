@@ -121,51 +121,93 @@ function writeFavorites() {
   }
 }
 
-function getPublicGists() {
-  //create the request
-  var req = new XMLHttpRequest();
-  if (!req) {
-    throw 'Unable to get HTTP request';
+//AJAX objects edited to follow thenewBoston Bucky tutorials on AJAX
+//create the request
+var req = createXMLHttpRequestObject();
+var req2 = createXMLHttpRequestObject();
+
+function createXMLHttpRequestObject() {
+  var xml;
+  try{
+    xml = new XMLHttpRequest();
+  } catch (e) {
+    xml = false;
   }
-  //var pages = document.getElementsByName('quantity')[0].value;
-  var url = 'https://api.github.com/gists/public';
-  /*if (x === 0) {
-    var url = 'https://api.github.com/gists/public?page=1&per_page=100';
-  } else if (x === 1) {
-    var url = 'https://api.github.com/gists/public?page=2&per_page=100';
-  }*/
-  req.onreadystatechange = function () {
-    if (req.readyState === 4) {
-      if (req.status === 200) {
-        //convert the response
-        globalGist = JSON.parse(req.responseText);
-        //filter the results for a language
-        var languages = [];
-        filterResults(languages);
-        //filter the favorites from the results
-        checkFavorites();
-        //write the results to the page
-        writeResults(globalGist);
-      } else {
-        // there was a problem with the request,
-        // for example the response may contain a 404 (Not Found)
-        // or 500 (Internal Server Error) response code
-        alert("request status error");
+  if (!xml) {
+    alert("Can't create the request object");
+    //throw 'Unable to get HTTP request';
+  }
+  return xml;
+}
+
+function getPublicGists() {
+  var url = 'https://api.github.com/gists/public?page=1&per_page=75';
+  if (req.readyState == 0 || req.readyState == 4) {
+    req.open('GET', url, true);
+    req.onreadystatechange = handleServerResponse;
+    req.send(null);
+  } else {
+    setTimeout('getPublicGists()', 1000);
+  }
+}
+
+function handleServerResponse() {
+  if (req.readyState === 4) {
+    if (req.status === 200) {
+      //convert the response
+      var temp = JSON.parse(req.responseText);
+      var i = 0;
+      var len = temp.length;
+      for (i; i < len; i++) {
+        globalGist.push(temp[i]);
       }
-    } else {
-      // still not
+      //filter the results for a language
+      var languages = [];
+      filterResults(languages);
+      //filter the favorites from the results
+      checkFavorites();
+      //write the results to the page
+      writeResults(globalGist);
     }
   }
-  //Make the request to the server
-  /*for getting multple pages will need to use url variable with url = 'https://api.github.com/gists/public' to start
-  then use url += '?' urlStringify(params);
-  params = {
-    numPages: (user selected value);
-    replace the url in req.open with the variable url
-  */
+}
 
-  req.open('GET', url, true);
-  req.send(null);
+function getPublicGists2() {
+  //var pages = document.getElementsByName('quantity')[0].value;
+  var url2 = 'https://api.github.com/gists/public?page=2&per_page=75';
+  if (req2.readyState == 0 || req2.readyState == 4) {
+    req2.open('GET', url2, true);
+    req2.onreadystatechange = handleServerResponse2;
+    req2.send(null);
+  } else {
+    setTimeout('getPublicGists2()', 1000);
+  }
+}
+
+function handleServerResponse2() {
+  if (req2.readyState === 4) {
+    if (req2.status === 200) {
+      //convert the response
+      var temp = JSON.parse(req2.responseText);
+      var i = 0;
+      var len = temp.length;
+      for (i; i < len; i++) {
+        globalGist.push(temp[i]);
+      }
+      //filter the results for a language
+      var languages = [];
+      filterResults(languages);
+      //filter the favorites from the results
+      checkFavorites();
+      //write the results to the page
+      writeResults(globalGist);
+    }
+  }
+}
+
+function searchGists() {
+  getPublicGists();
+  getPublicGists2();
 }
 
 function favoriteResult(gistId) {
