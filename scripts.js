@@ -1,14 +1,22 @@
 var globalGist = [];
 var favorites = [];
+var localCheck = "true";
+var pagesDisplay;
+//AJAX objects edited to follow thenewBoston Bucky tutorials on AJAX
+//create the request
+var req = createXMLHttpRequestObject();
+var req2 = createXMLHttpRequestObject();
 
 window.onload = function () {
+  localStorage.setItem('check', localCheck);
+  if (localStorage.getItem('check') !== "true") {
+    alert('local storage is not accessible, favorites will not work');
+  }
   if (localStorage.getItem("favorites")) {
     favorites = JSON.parse(localStorage.getItem("favorites"));
   }
   writeFavorites();
 }
-
-//only way to make sure local storage exists is to write to it, then check you get that value back.
 
 function filterResults(lang) {
   var i, j;
@@ -49,7 +57,7 @@ function writeResults() {
   //for removing all elements than resultsDiv.innerHTML = ''
   while (resultsDiv.firstChild) resultsDiv.removeChild(resultsDiv.firstChild);
   var i;
-  var len = globalGist.length;
+  var len = pagesDisplay * 30;
   for(i = 0; i < len; i++){
     if (globalGist[i].hasLang === true && globalGist[i].favorited === false) {
       var desc = globalGist[i].description;
@@ -121,11 +129,6 @@ function writeFavorites() {
   }
 }
 
-//AJAX objects edited to follow thenewBoston Bucky tutorials on AJAX
-//create the request
-var req = createXMLHttpRequestObject();
-var req2 = createXMLHttpRequestObject();
-
 function createXMLHttpRequestObject() {
   var xml;
   try{
@@ -173,7 +176,6 @@ function handleServerResponse() {
 }
 
 function getPublicGists2() {
-  //var pages = document.getElementsByName('quantity')[0].value;
   var url2 = 'https://api.github.com/gists/public?page=2&per_page=75';
   if (req2.readyState == 0 || req2.readyState == 4) {
     req2.open('GET', url2, true);
@@ -206,8 +208,14 @@ function handleServerResponse2() {
 }
 
 function searchGists() {
-  getPublicGists();
-  getPublicGists2();
+  var pages = document.getElementsByName('quantity')[0].value;
+  pagesDisplay = parseInt(pages);
+  if (typeof pagesDisplay === 'number' && pagesDisplay >= 1 && pagesDisplay <= 5) {
+      getPublicGists();
+      getPublicGists2(); 
+  } else {
+    alert("You did not enter a valid # of pages")
+  }
 }
 
 function favoriteResult(gistId) {
