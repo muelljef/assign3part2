@@ -29,12 +29,15 @@ Date Start:     Wed Apr 15 20:30:00 2015 +1000
 Date End:       Wed Apr 15 21:32:41 2015 +1000            
 Task:  During this period I edited the Javascript files to conform to Google Javascript standards and to pass the JSLint
         website tests. The code still passes all tests in the html file.
+
+---------------------------------------------------------------------------------
         
 Date Start:     Wed Apr 22 06:00:00 2015 +1000
 Date End:       Wed Apr 22 10:03:19 2015 +1000
-Task:  During this period I setup the basic html, javascript and css files. A very basic html structure and css style was implmented to show a search button,
-        results, and favorites. I implemented some javascript functions to change the html text inside those areas for onload and when pressing the button.
-        Also, I got the server request for gists working and stored into an object using JSON parse.
+Task:  During this period I setup the basic html, javascript and css files for assignment 3 part 2. A very basic html structure and css 
+        style was implmented to show a search button, results, and favorites. I implemented some javascript functions to change the html 
+        text inside those areas for onload and when pressing the button. Also, I got the server request for gists working and stored into 
+        an object using JSON parse.
             
 Date Start:     Wed Apr 22 15:15:00 2015 +1000
 Date End:       Wed Apr 22 17:03:11 2015 +1000
@@ -42,15 +45,32 @@ Task:   I created function to display search results in a results div
 
 Date Start:     Fri Apr 24 07:15:00 2015 +1000
 Date End:       Fri Apr 24 10:20:03 2015 +1000
-Task: Successfully separated writeLines function. Was having trouble because I started calling the AJAX function from the writeLines. Needed AJAX calling the writeLines
-        due to asynchronus behavior of AJAX. I got filtering function working.
+Task: Successfully separated writeLines function. Was having trouble because I started calling the AJAX function from the writeLines. Needed 
+        AJAX calling the writeLines due to asynchronus behavior of AJAX. I got filtering function working.
         
-Date Start:     Fri Apr 24 07:15:00 2015 +1000
+Date Start:     Fri Apr 24 14:00:00 2015 +1000
 Date End:       Fri Apr 24 16:42:42 2015 +1000
-
 Task:   Added favorite and unfavorite buttons, functionality for favorite button, near functionality for unfavorite button
     
 Date Start:     Fri Apr 24 18:00:00 2015 +1000
 Date End:       Fri Apr 24 19:36:58 2015 +1000
+Task:   Incorporated local storage to favorites, add/remove favorites working
 
-Task:   Incorporated local storage to favorits, add/remove favorites working
+Date Start:     Sat Apr 25 12:05:00 2015 +1000
+Date End:       Sat Apr 25 14:51:08 2015 +1000
+Tasks:  I added git ignore to ignore VS build files. During this time I struggled with trying to understand how to get more than 1 page request
+            from gists API. It was through the message boards that I finally realized the page= was the page number it was returning, not the 
+            number of pages. Some minor changes to functions were made to simplify or remove unnecessary variables
+            
+Date Start:     Sat Apr 25 15:00:00 2015 +1000
+Date End:       Sat Apr 25 15:57:39 2015 +1000
+Tasks:     During this time I got the multiple ajax requests working so that I could get 150 results to work with. I essentially made 2 different 
+            functions for the requests which is not ideal. If time I will try to change code so that I don't need the duplicate function.
+
+Date Start:     Sat Apr 25 16:46:58 2015 +1000
+Date End:       Sat Apr 25 17:46:58 2015 +1000
+Tasks:  During this time I worked out how to validate the number of pages implemented. I made a decision to rule out leaving the input field blank.
+
+Date Start:     Sat Apr 25 19:00:52 2015 +1000
+Date End:       Sat Apr 25 19:03:52 2015 +1000
+Tasks:  I added (1-5) to display of placeholder
