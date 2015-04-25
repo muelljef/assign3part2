@@ -1,0 +1,8 @@
+Assign3Part2.csproj
+Assign3Part2.csproj.user
+Properties/
+Web.Debug.config
+Web.Release.config
+Web.config
+bin/
+obj/
