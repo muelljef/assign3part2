@@ -58,7 +58,6 @@ function writeResults() {
       //create a div for the result
       var div = document.createElement("div");
       div.id = id;
-      
       //create the description and link
       var a = document.createElement("a");
       if (desc === "") {
@@ -68,7 +67,6 @@ function writeResults() {
       a.appendChild(descText);
       a.href = url;
       div.appendChild(a);
-
       //create the button and append it
       var button = document.createElement("button");
       button.setAttribute("gistId", id);
@@ -79,7 +77,6 @@ function writeResults() {
         favoriteResult(gistId);
       };
       div.appendChild(button);
-      
       //append the div to the html
       resultsDiv.appendChild(div);
     }
@@ -101,7 +98,6 @@ function writeFavorites() {
     //create a div for the result
     var div = document.createElement("div");
     div.id = id;
-
     //create the description and link
     var a = document.createElement("a");
     if (desc === "") {
@@ -111,7 +107,6 @@ function writeFavorites() {
     a.appendChild(descText);
     a.href = url;
     div.appendChild(a);
-
     //create the button and append it
     var button = document.createElement("button");
     button.setAttribute("gistId", id);
@@ -121,7 +116,6 @@ function writeFavorites() {
       removeFavorite(gistId);
     };
     div.appendChild(button);
-
     //append the div to the html
     favoritesDiv.appendChild(div);
   }
@@ -133,23 +127,25 @@ function getPublicGists() {
   if (!req) {
     throw 'Unable to get HTTP request';
   }
-  //define what happens when the request is received
+  //var pages = document.getElementsByName('quantity')[0].value;
+  var url = 'https://api.github.com/gists/public';
+  /*if (x === 0) {
+    var url = 'https://api.github.com/gists/public?page=1&per_page=100';
+  } else if (x === 1) {
+    var url = 'https://api.github.com/gists/public?page=2&per_page=100';
+  }*/
   req.onreadystatechange = function () {
     if (req.readyState === 4) {
-      console.log("Hello from getPublicGists")
-      // everything is good, the response is received
       if (req.status === 200) {
         //convert the response
-        var myObj = JSON.parse(req.responseText);
-        //save the results to a global list
-        globalGist = myObj;
+        globalGist = JSON.parse(req.responseText);
         //filter the results for a language
         var languages = [];
         filterResults(languages);
         //filter the favorites from the results
         checkFavorites();
         //write the results to the page
-        writeResults(myObj);
+        writeResults(globalGist);
       } else {
         // there was a problem with the request,
         // for example the response may contain a 404 (Not Found)
@@ -167,7 +163,8 @@ function getPublicGists() {
     numPages: (user selected value);
     replace the url in req.open with the variable url
   */
-  req.open('GET', 'https://api.github.com/gists/public', true);
+
+  req.open('GET', url, true);
   req.send(null);
 }
 
