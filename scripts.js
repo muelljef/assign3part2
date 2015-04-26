@@ -2,7 +2,7 @@ var globalGist = [];
 var favorites = [];
 var localCheck = "true";
 var pagesDisplay;
-//AJAX objects edited to follow thenewBoston Bucky tutorials on AJAX
+//AJAX objects edited to based on course lectures and thenewBoston tutorials
 //create the request
 var req = createXMLHttpRequestObject();
 var req2 = createXMLHttpRequestObject();
@@ -129,6 +129,7 @@ function writeFavorites() {
   }
 }
 
+//AJAX objects edited to based on course lectures and thenewBoston tutorials
 function createXMLHttpRequestObject() {
   var xml;
   try{
@@ -142,7 +143,7 @@ function createXMLHttpRequestObject() {
   }
   return xml;
 }
-
+//AJAX objects edited to based on course lectures and thenewBoston tutorials
 function getPublicGists() {
   var url = 'https://api.github.com/gists/public?page=1&per_page=75';
   if (req.readyState == 0 || req.readyState == 4) {
@@ -153,7 +154,7 @@ function getPublicGists() {
     setTimeout('getPublicGists()', 1000);
   }
 }
-
+//AJAX objects edited to based on course lectures and thenewBoston tutorials
 function handleServerResponse() {
   if (req.readyState === 4) {
     if (req.status === 200) {
@@ -164,17 +165,13 @@ function handleServerResponse() {
       for (i; i < len; i++) {
         globalGist.push(temp[i]);
       }
-      //filter the results for a language
-      var languages = [];
-      filterResults(languages);
-      //filter the favorites from the results
-      checkFavorites();
-      //write the results to the page
-      writeResults(globalGist);
+      //Now that the first response is finished,
+      //make the 2nd server request
+      getPublicGists2();
     }
   }
 }
-
+//AJAX objects edited to based on course lectures and thenewBoston tutorials
 function getPublicGists2() {
   var url2 = 'https://api.github.com/gists/public?page=2&per_page=75';
   if (req2.readyState == 0 || req2.readyState == 4) {
@@ -185,7 +182,7 @@ function getPublicGists2() {
     setTimeout('getPublicGists2()', 1000);
   }
 }
-
+//AJAX objects edited to based on course lectures and thenewBoston tutorials
 function handleServerResponse2() {
   if (req2.readyState === 4) {
     if (req2.status === 200) {
@@ -212,7 +209,7 @@ function searchGists() {
   pagesDisplay = parseInt(pages);
   if (typeof pagesDisplay === 'number' && pagesDisplay >= 1 && pagesDisplay <= 5) {
       getPublicGists();
-      getPublicGists2(); 
+
   } else {
     alert("You did not enter a valid # of pages")
   }
