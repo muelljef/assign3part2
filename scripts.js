@@ -2,6 +2,7 @@ var globalGist = [];
 var favorites = [];
 var localCheck = "true";
 var pagesDisplay;
+var languages = [];
 //AJAX objects edited to based on course lectures and thenewBoston tutorials
 //create the request
 var req = createXMLHttpRequestObject();
@@ -18,9 +19,9 @@ window.onload = function () {
   writeFavorites();
 }
 
-function filterResults(lang) {
+function filterResults() {
   var i, j;
-  var langLen = lang.length;
+  var langLen = languages.length;
   var len = globalGist.length;
   //create boolean for all objects
   for (i = 0; i < len; i++) {
@@ -37,7 +38,7 @@ function filterResults(lang) {
       for (var prop in globalGist[i].files) {
         //check if the .files has its own property (part of org obj, not added to prototype)
         if (globalGist[i].files.hasOwnProperty(prop)) {
-          if (globalGist[i].files[prop].language === lang[j]) {
+          if (globalGist[i].files[prop].language === languages[j]) {
             globalGist[i].hasLang = true;
           } else if (j === 0) {
             //if there is at least 1 language to filter, set boolean to false on first iter
@@ -194,8 +195,7 @@ function handleServerResponse2() {
         globalGist.push(temp[i]);
       }
       //filter the results for a language
-      var languages = [];
-      filterResults(languages);
+      filterResults();
       //filter the favorites from the results
       checkFavorites();
       //write the results to the page
@@ -205,14 +205,29 @@ function handleServerResponse2() {
 }
 
 function searchGists() {
+  //get user entry for pages of results to display
   var pages = document.getElementsByName('quantity')[0].value;
   pagesDisplay = parseInt(pages);
+  //get user languages
+  languages = []; //reset the language array each time the user searches (in case user unchecks)
+  globalGists = []; //reset the globalGist list
+  getLanguages();
+  //make the server request if info is valid
   if (typeof pagesDisplay === 'number' && pagesDisplay >= 1 && pagesDisplay <= 5) {
       getPublicGists();
-
   } else {
     alert("You did not enter a valid # of pages")
   }
+}
+
+function getLanguages() {
+  var checks = ['Python', 'JSON', 'JavaScript', 'SQL'];
+  var i;
+  for (i = 0; i < checks.length; i++)
+    //if the language is checked then add it to the array
+    if (document.getElementsByName(checks[i])[0].checked === true) {
+      languages.push(document.getElementsByName(checks[i])[0].value);
+    }
 }
 
 function favoriteResult(gistId) {

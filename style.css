@@ -31,11 +31,3 @@ div > button {
   height: 30px;
   width: 70px;
 }
-
-.myFav > div > span:first-child {
-  width: 10%;
-}
-
-.myFav > div > span:nth-child(2) {
-  width: 75%;
-}

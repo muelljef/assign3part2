@@ -4,22 +4,24 @@
   <meta charset='utf-8'>
   <title>assignment3part2</title>
   <link rel='stylesheet' href='style.css'>
+  <script src='scripts.js'></script>
 </head>
 <body>
   <h1>Hello Gists</h1>
-
   <form>
     <input type="number" name="quantity" min='1' max='5' placeholder="enter number of pages(1-5)" id="pg">  
-    <input type='button' name='search' onclick='searchGists()' value='Search Gists'>
+    <input type='button' name='search' onclick='searchGists()' value='Search Gists'><br />
+    <label>Language Filter: </label>
+    <input type="checkbox" name="Python" value="Python" /><label>Python</label>
+    <input type="checkbox" name="JSON" value="JSON" /><label>JSON</label>
+    <input type="checkbox" name="JavaScript" value="JavaScript" /><label>JavaScript</label>
+    <input type="checkbox" name="SQL" value="SQL" /><label>SQL</label>
   </form>  
-
   <h2 class="mySearch">Results</h2>
   <h2 class="myFav">Favorites</h2>
   <div class="mySearch" id="results">
   </div>
   <div class="myFav" id="favorites">
   </div>
-
-  <script src='scripts.js'></script>
 </body>
 </html>
