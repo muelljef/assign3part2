@@ -101,3 +101,8 @@ Date:           Sun Apr 26 15:37:25 2015 +1000
 Tasks:      My Global gist array was retaining all the gists data for each search. I implemented a solution to clear the array for each search. I also
             played with the feature on the button_changes branch. Again I could not get it to work.
     
+Date:   Sun Apr 26 17:45:00 2015 +1000
+Date:   Sun Apr 26 18:16:51 2015 +1000
+Tasks:      During this time I edited scripts.js file to conform to JS Lint standards. Further testing to verify edits did not break the website. I could
+            not completey conform to JS Lint standards the writeFavorites and writeResults functions needing to insert a function in the button. Which needs
+            to later call the appropriate functions. HTML and Style sheets validated to HTML5 and CSS2.1
