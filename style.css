@@ -1,12 +1,13 @@
+h1 {
+  text-align: center;
+}
+
 form > input {
-  width: auto;
-  height: auto;
   font-size: medium;
 }
 
-body > div > div {
-  margin: 10px;
-  border: solid;
+#pg {
+  width: 275px;
 }
 
 .mySearch {
@@ -17,6 +18,11 @@ body > div > div {
 .myFav {
   width: 47.5%;
   float: right;
+}
+
+body > div > div {
+  margin: 10px;
+  border-bottom: solid;
 }
 
 div > button {
