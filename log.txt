@@ -2,81 +2,102 @@ You log goes in this  file.
 
 Date Start:     Mon Apr 13 16:41:25 2015 +1000
 Date End:       Mon Apr 13 17:18:30 2015 +1000
-Tasks: During this period I setup my copy/repo of the assignment in Github and 
-        read the Mozilla Javascript documentation while completing the first function of object.js
+Tasks:      During this period I setup my copy/repo of the assignment in Github and 
+            read the Mozilla Javascript documentation while completing the first function of object.js
         
 Date Start:     Tue Apr 14 09:45:00 2015 +1000 
 Data End:       Tue Apr 14 10:29:25 2015 +1000
-Tasks: During this period I read Mozilla Javascript documentation while completing the uselessFunction 
-        of functions.js and variableModification of variables.js. Work started on barFunction of functions.js
+Tasks:      During this period I read Mozilla Javascript documentation while completing the uselessFunction 
+            of functions.js and variableModification of variables.js. Work started on barFunction of functions.js
         
 Date Start:     Tue Apr 14 11:00:00 2015 +1000
 Date End:       Tue Apr 14 11:16:20 2015 +1000
-Tasks: During this period I completed the isString and isNull functions of variables.js and the
-        bar function in functions.js
+Tasks:      During this period I completed the isString and isNull functions of variables.js and the
+            bar function in functions.js
         
 Date Start:     Tue Apr 14 11:35:05 2015 +1000
 Date End:       Tue Apr 14 12:45:05 2015 +1000
-Tasks: During this period I worked on the parseGit function. Passing tests for hash and message. Could not get
-        Date to work. Will need to focus on materials related to Date syntax in Javascript.
+Tasks:      During this period I worked on the parseGit function. Passing tests for hash and message. Could not get
+            Date to work. Will need to focus on materials related to Date syntax in Javascript.
         
 Date Start:     Tue Apr 14 13:30:00 2015 +1000
 Date End:       Tue Apr 14 16:03:23 2015 +1000        
-Tasks: During this period I fixed the syntax of the Date in the parseGit and GitLog object. I also finished all steps
-        related to the MessageLog object. Part 1 passes all tests.
+Tasks:      During this period I fixed the syntax of the Date in the parseGit and GitLog object. I also finished all steps
+            related to the MessageLog object. Part 1 passes all tests.
             
 Date Start:     Wed Apr 15 20:30:00 2015 +1000
 Date End:       Wed Apr 15 21:32:41 2015 +1000            
-Task:  During this period I edited the Javascript files to conform to Google Javascript standards and to pass the JSLint
-        website tests. The code still passes all tests in the html file.
+Task:       During this period I edited the Javascript files to conform to Google Javascript standards and to pass the JSLint
+            website tests. The code still passes all tests in the html file.
 
 ---------------------------------------------------------------------------------
         
 Date Start:     Wed Apr 22 06:00:00 2015 +1000
 Date End:       Wed Apr 22 10:03:19 2015 +1000
-Task:  During this period I setup the basic html, javascript and css files for assignment 3 part 2. A very basic html structure and css 
-        style was implmented to show a search button, results, and favorites. I implemented some javascript functions to change the html 
-        text inside those areas for onload and when pressing the button. Also, I got the server request for gists working and stored into 
-        an object using JSON parse.
+Task:       During this period I setup the basic html, javascript and css files for assignment 3 part 2. A very basic html structure and css 
+            style was implmented to show a search button, results, and favorites. I implemented some javascript functions to change the html 
+            text inside those areas for onload and when pressing the button. Also, I got the server request for gists working and stored into 
+            an object using JSON parse.
             
 Date Start:     Wed Apr 22 15:15:00 2015 +1000
 Date End:       Wed Apr 22 17:03:11 2015 +1000
-Task:   I created function to display search results in a results div
+Task:       I created function to display search results in a results div
 
 Date Start:     Fri Apr 24 07:15:00 2015 +1000
 Date End:       Fri Apr 24 10:20:03 2015 +1000
-Task: Successfully separated writeLines function. Was having trouble because I started calling the AJAX function from the writeLines. Needed 
-        AJAX calling the writeLines due to asynchronus behavior of AJAX. I got filtering function working.
+Task:       Successfully separated writeLines function. Was having trouble because I started calling the AJAX function from the writeLines. Needed 
+            AJAX calling the writeLines due to asynchronus behavior of AJAX. I got filtering function working.
         
 Date Start:     Fri Apr 24 14:00:00 2015 +1000
 Date End:       Fri Apr 24 16:42:42 2015 +1000
-Task:   Added favorite and unfavorite buttons, functionality for favorite button, near functionality for unfavorite button
+Task:       Added favorite and unfavorite buttons, functionality for favorite button, near functionality for unfavorite button
     
 Date Start:     Fri Apr 24 18:00:00 2015 +1000
 Date End:       Fri Apr 24 19:36:58 2015 +1000
-Task:   Incorporated local storage to favorites, add/remove favorites working
+Task:       Incorporated local storage to favorites, add/remove favorites working
 
 Date Start:     Sat Apr 25 12:05:00 2015 +1000
 Date End:       Sat Apr 25 14:51:08 2015 +1000
-Tasks:  I added git ignore to ignore VS build files. During this time I struggled with trying to understand how to get more than 1 page request
+Tasks:      I added git ignore to ignore VS build files. During this time I struggled with trying to understand how to get more than 1 page request
             from gists API. It was through the message boards that I finally realized the page= was the page number it was returning, not the 
             number of pages. Some minor changes to functions were made to simplify or remove unnecessary variables
             
 Date Start:     Sat Apr 25 15:00:00 2015 +1000
 Date End:       Sat Apr 25 15:57:39 2015 +1000
-Tasks:     During this time I got the multiple ajax requests working so that I could get 150 results to work with. I essentially made 2 different 
+Tasks:      During this time I got the multiple ajax requests working so that I could get 150 results to work with. I essentially made 2 different 
             functions for the requests which is not ideal. If time I will try to change code so that I don't need the duplicate function.
 
 Date Start:     Sat Apr 25 16:46:58 2015 +1000
 Date End:       Sat Apr 25 17:46:58 2015 +1000
-Tasks:  During this time I worked out how to validate the number of pages implemented. I made a decision to rule out leaving the input field blank.
+Tasks:      During this time I worked out how to validate the number of pages implemented. I made a decision to rule out leaving the input field blank.
 
 Date Start:     Sat Apr 25 19:00:52 2015 +1000
 Date End:       Sat Apr 25 19:03:52 2015 +1000
-Tasks:  I added (1-5) to display of placeholder
+Tasks:      I added (1-5) to display of placeholder
 
-Date Start:   Sun Apr 26 10:30:22 2015 +1000
-Date End:   Sun Apr 26 11:54:22 2015 +1000
-Tasks:  Played around with some css styling. For this commit I only made the search box big enough to see placeholder on all browsers. Chrome was 
+Date Start:     Sun Apr 26 10:30:22 2015 +1000
+Date End:       Sun Apr 26 11:54:22 2015 +1000
+Tasks:      Played around with some css styling. For this commit I only made the search box big enough to see placeholder on all browsers. Chrome was 
             the limiting factor requiring the size be 275px minimum. I changed the border from all around the gists to just the bottom. Will
             branch to move button position to front of div
+            
+Date Start:     Sun Apr 26 11:54:22 2015 +1000
+Date End:       Sun Apr 26 12:46:29 2015 +1000
+Tasks:      Moved button in front of div. Played around with some more styling putting buttons and descriptions in their own divs, but I could not
+            acheive the layout I was looking for. I will need to play around with html and css some more in future.
+
+Date Start:     Sun Apr 26 12:46:29 2015 +1000
+Date End:       Sun Apr 26 13:07:25 2015 +1000
+Tasks:      Error msg to console due to both AJAX requests being called at the same time. I implemented a solution that would wait to call the 2nd AJAX
+            request and filtering(by favorites) and output from the 2nd AJAX call. Unfortunately this has made the output a little slow.
+            
+Date:           Sun Apr 26 14:07:46 2015 +1000
+Date:           Sun Apr 26 15:07:46 2015 +1000
+Tasks:      Implemented filter with checkboxes. Since I had the filter function working already, I just needed to get the checkboxes and pass the
+                correct input to the filter
+               
+Date:           Sun Apr 26 15:07:46 2015 +1000
+Date:           Sun Apr 26 15:37:25 2015 +1000
+Tasks:      My Global gist array was retaining all the gists data for each search. I implemented a solution to clear the array for each search. I also
+            played with the feature on the button_changes branch. Again I could not get it to work.
+    
