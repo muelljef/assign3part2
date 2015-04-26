@@ -209,8 +209,12 @@ function searchGists() {
   var pages = document.getElementsByName('quantity')[0].value;
   pagesDisplay = parseInt(pages);
   //get user languages
-  languages = []; //reset the language array each time the user searches (in case user unchecks)
-  globalGists = []; //reset the globalGist list
+  while (languages.length > 0) {
+    languages.pop();
+  }
+  while (globalGist.length > 0) {
+    globalGist.pop();
+  }
   getLanguages();
   //make the server request if info is valid
   if (typeof pagesDisplay === 'number' && pagesDisplay >= 1 && pagesDisplay <= 5) {
