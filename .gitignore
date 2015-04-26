@@ -6,3 +6,4 @@ Web.Release.config
 Web.config
 bin/
 obj/
+log.txt
