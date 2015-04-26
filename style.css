@@ -23,10 +23,19 @@ form > input {
 body > div > div {
   margin: 10px;
   border-bottom: solid;
+  border-bottom-width: 2px;
 }
 
 div > button {
   margin: 10px;
   height: 30px;
   width: 70px;
+}
+
+.myFav > div > span:first-child {
+  width: 10%;
+}
+
+.myFav > div > span:nth-child(2) {
+  width: 75%;
 }

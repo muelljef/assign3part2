@@ -66,15 +66,6 @@ function writeResults() {
       //create a div for the result
       var div = document.createElement("div");
       div.id = id;
-      //create the description and link
-      var a = document.createElement("a");
-      if (desc === "") {
-        desc = "NO DESCRIPTION";
-      }
-      var descText = document.createTextNode(desc);
-      a.appendChild(descText);
-      a.href = url;
-      div.appendChild(a);
       //create the button and append it
       var button = document.createElement("button");
       button.setAttribute("gistId", id);
@@ -85,6 +76,15 @@ function writeResults() {
         favoriteResult(gistId);
       };
       div.appendChild(button);
+      //create the description and link
+      var a = document.createElement("a");
+      if (desc === "") {
+        desc = "NO DESCRIPTION";
+      }
+      var descText = document.createTextNode(desc);
+      a.appendChild(descText);
+      a.href = url;
+      div.appendChild(a);
       //append the div to the html
       resultsDiv.appendChild(div);
     }
@@ -106,15 +106,6 @@ function writeFavorites() {
     //create a div for the result
     var div = document.createElement("div");
     div.id = id;
-    //create the description and link
-    var a = document.createElement("a");
-    if (desc === "") {
-      desc = "NO DESCRIPTION";
-    }
-    var descText = document.createTextNode(desc);
-    a.appendChild(descText);
-    a.href = url;
-    div.appendChild(a);
     //create the button and append it
     var button = document.createElement("button");
     button.setAttribute("gistId", id);
@@ -124,6 +115,15 @@ function writeFavorites() {
       removeFavorite(gistId);
     };
     div.appendChild(button);
+    //create the description and link
+    var a = document.createElement("a");
+    if (desc === "") {
+      desc = "NO DESCRIPTION";
+    }
+    var descText = document.createTextNode(desc);
+    a.appendChild(descText);
+    a.href = url;
+    div.appendChild(a);
     //append the div to the html
     favoritesDiv.appendChild(div);
   }
